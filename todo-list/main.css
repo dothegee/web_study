@@ -1,0 +1,19 @@
+/* #title{
+    color:red
+}
+.title2{
+    font-size:150%;
+} */
+
+/* p>span{
+    color:red;
+} */
+
+/* p테그 안에 있는 span 테그 */
+/* 
+p > .title{
+    color:red;
+} */
+
+/* p테그 안에 있는 class 이름이 title인 테그 */
+
