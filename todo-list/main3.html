@@ -21,7 +21,7 @@
     <div class="container" id = "container">
         <!-- 제목을 작성을 하기때문에 h3 테그 사용 -->
         <h3 id="title">
-            정말 간단 TODO LIST
+            TEST practice
         </h3>
         <div id="sub-container">
             <ul class="list-group" id="list-group">
@@ -55,10 +55,54 @@
     </div>
 
     <script>
-        console.log("만세")
-        function x(){
-            alert("만세!")
-        }
+        // console.log("만세")
+        // console.log() == print 와 같은 기능
+        // function x(){
+        //     alert("만세!")
+        // }
+        // 변수
+        let a = "값"
+        let b = 100
+        let c = true
+        let a2 = "은 뭘까요?"
+        let a3 = a+a2
+        console.log(a3)
+        let b2 = 200
+        let b3 = b + b2
+        console.log(b3)
+        let ab = a + b
+        console.log(ab)
+        let c2 = 10 > 5
+        console.log(c2)
+
+        
+        let str = "문자"
+        let str2 = '문자'
+        let str3 = `문자`
+
+        console.log(`저의 나이는 ${b}`)
+        // ``는 안에 변수를 넣을 수 있어
+        // f"~~~{}"와 같음
+
+        // 객체와 배열
+        let arr = [1,2,3,4,'문자',true, false]
+        console.log(arr)
+        console.log(arr[2])
+        arr.push("값")
+        // 구글에 javascript MDN array function 참고 할 것
+        console.log(arr)
+        
+
+        // obj는 객체로 python에서 dictionary와 같은 key와 value로 구성
+        let obj = {"key":"value"}
+        console.log(obj)
+
+        let dic = [
+            {"a":"apple"},
+            {"b":"banana"},
+            {"c":"cloud"}
+        ]
+        console.log(dic)
     </script>
     <!-- body 하단에 <script></script>를 써서 자바스크립트 문법을
     사용할 수 있어 -->
