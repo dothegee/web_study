@@ -39,19 +39,16 @@
                 </li>
               </ul>
         </div>
-        <nav class="navbar bg-body-tertiary", id="input-group">
-            <div class="container-fluid">
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" id="input-area">
-                <button class="btn btn-outline-success" 
-                type="submit" id="button-area"
-                onclick="x()">추가</button>
-                <!-- 버튼을 눌렀을 때 어떠한 이벤트를 발생시키기위해
+
+          <div class="input-group mb-3" id = "input-group">
+            <input type="text" class="form-control" id = "input-area">
+            <button class="btn btn-outline-secondary" type="button" 
+            id="button-area" onclick="x()">추가</button>
+                            <!-- 버튼을 눌렀을 때 어떠한 이벤트를 발생시키기위해
                 onclick이라는 속성을 사용
                 버튼을 눌렀을 때 onclick에 따린 함수(우리가 직접만들) -->
-              </form>
-            </div>
-          </nav>
+            
+          </div>
     </div>
 
     <script>
@@ -60,8 +57,8 @@
 
         function x(){
             // 사용자가 입력한 값을 가져올때
-            // let todo = document.getElementById("input-area").val
-            let todo = $(".input-area").val();
+            let todo = document.getElementById("input-area").val
+            // let todo = $(".input-area").val();
             console.log(todo)
         }
     </script>

@@ -37,7 +37,7 @@ id가 container */
 .list-group-item{
     border: none !important;
     /* !important->최우선으로  */
-    border-bottom: 1px solid wheat !important;
+    border-bottom: 1px solid rgb(145, 145, 145) !important;
 
 }
 #input-group{
