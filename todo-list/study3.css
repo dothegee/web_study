@@ -52,6 +52,8 @@ id가 container */
 
 #button-area{
     border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     background-color: blueviolet;
     color:white
 }
