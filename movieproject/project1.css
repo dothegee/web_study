@@ -1,0 +1,16 @@
+/* (id는 # ) (class는 .) */
+
+/* 페이지 전부에 폰트 적용하기 */
+
+*{
+    font-family: 'Jua', sans-serif;
+}
+
+#jumbotron{
+    margin-top: 30px; /* 위에서 부터 30px 떨꿈 */
+    text-align: center; /*가운데 정렬*/
+}
+
+body{
+    background-color: darkslategrey;
+}
