@@ -27,7 +27,7 @@
             <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
             <a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
         </div>
-        <div class="row row-cols-1 row-cols-md-3">
+        <div class="row row-cols-1 row-cols-md-3" id="movie-list">
             <div class="col mb-4">
                 <div class="card">
                     <img src="..." class="card-img-top" alt="...">
@@ -65,7 +65,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <script>
-        function review(){
+        $.ajax({
+                    url:"https://api.themoviedb.org/3/movie/popular?api_key=10923b261ba94d897ac6b81148314a3f&page=1",
+                    data:{},
+                    // url을 가지고 올 때 도메인을 브라우저에 썼어--> GET방식
+                    type:"GET",
+                    success:function(json){
+                        console.log(json)
+                        // 부모테그 movie-list안을 비운다
+                        $('#movie-list').html('')
+                        let movie_list = json.results;
+
+                        for(let i = 0; i<movie_list.length; i++){
+                            let card = `<div class="col mb-4">
+                <div class="card">
+                    <img src="https://image.tmdb.org/t/p/w500/${movie_list[i].poster_path}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${movie_list[i].original_title}</h5>
+                        <button type="button" class="btn btn-success" id="comment-button" onclick="review(${movie_list[i].id})">코멘트 보기</button>
+                    </div>
+                </div>
+            </div>`
+            $("#movie-list").append(card)
+                        }
+                    },
+                    error:function(err){
+
+                    }   
+                })
+        function review(id){
             $('#review-modal').modal('show')
         }
     </script>
