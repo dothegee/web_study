@@ -65,6 +65,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <script>
+        let target_id=0;
         $.ajax({
                     url:"https://api.themoviedb.org/3/movie/popular?api_key=10923b261ba94d897ac6b81148314a3f&page=1",
                     data:{},
@@ -94,21 +95,49 @@
                     }   
                 })
         function review(id){
+            target_id=id
             $.ajax({
                 url:`http://universeapi.net/review/list?movie_id=${id}`,
                 data:{},
                 type:"GET",
                 success:function(json){
-                    console.log(json)
-                    let reviews = json.data
-                    $(".modal-body").html()
+                    $(".modal-body").html('')
+                    console.log(json.data)
+                    let reviews = json.data;
+                    
                     for(let i=0; i<reviews.length; i++){
                         $(".modal-body").append(`<p>${reviews[i].review}</p>`)
                     }
                 }
+                // ,
+                // error:function(){
+                //     $(".modal-body").html('')
+                //     $(".modal-body").append("리뷰 정보가 없습니다")
+                // }
             })
 
             $('#review-modal').modal('show')
+        }
+
+        function addReview(){
+            let review = $("#review").val();
+            let review_html = `<p>${review}</p>`
+
+            $.ajax({
+                url:'http://universeapi.net/review/add',
+                data:{
+                    movie_id:target_id,
+                    review:review
+                },
+                type:'POST',
+                success:function(json){
+                    console.log(json)
+                }
+            })
+            $(".modal-body").append(review_html)
+            $("#review").val("");
+
+
         }
     </script>
 
