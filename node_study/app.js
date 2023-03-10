@@ -19,6 +19,11 @@ app.get("/",function(req,res){
 // 최종적으로 그 사용자에게 어떤 값을 내 보내줌=>res.send를 통해
 
 
+app.get("/about", function(req, res){
+    res.send('About Page')
+})
+// 회사 소개 페이지 같은 경우
+
 
 app.listen(3000, function(req,res){
     console.log("서버가 실행되고 있다.")
