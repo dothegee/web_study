@@ -7,10 +7,22 @@ const app = express();
 // 그것을 변수에 담아 사용하겟다
 // 그리고 그 변수가 함수를 받아온것이고
 // 그 함수의 리턴값을 app으로 받겠다
+const ejs = require("ejs")
+
+
+// html과 그림 파일 보여주기위해 밑 세줄 꼭 써야대
+app.set('view engine', 'ejs'); //ejs라는 템플릿 사용 & ejs 파일을 열어준다
+app.set('views', './views') 
+app.use('/public', express.static(__dirname + '/public'));
+
+
 
 const helmet = require("helmet");
 app.use(helmet());
 
+// 밑의 두줄이 있어야 POST방식의 api를 서버에서 활용할수 있어
+app.use(express.json())
+app.use(express.urlencoded())
 
 // app.get("/",function(req,res){
 //     res.send('Hello World');
